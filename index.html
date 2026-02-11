@@ -13,6 +13,7 @@ body{
   font-family:'Montserrat', sans-serif;
   background:#f4f6f9;
   color:#222;
+  scroll-behavior: smooth;
 }
 
 header{
@@ -22,6 +23,9 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 header h2{
@@ -44,18 +48,39 @@ nav button:hover{
   background:#163bb3;
 }
 
+.lang-buttons{
+  text-align:center;
+  margin:20px;
+}
+
+.lang-buttons button{
+  padding:8px 14px;
+  margin:5px;
+  border:none;
+  border-radius:5px;
+  background:#1f4ed8;
+  color:white;
+  cursor:pointer;
+}
+
 section{
   padding:80px 20px;
   max-width:1100px;
   margin:auto;
   text-align:center;
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 0.8s ease;
+}
+
+section.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .hero{
   background:linear-gradient(rgba(10,31,68,0.85), rgba(10,31,68,0.85)),
-  url('https://images.unsplash.com/photo-1581091870627-3e7b5d8ef0c3');
-  background-size:cover;
-  background-position:center;
+  url('https://images.unsplash.com/photo-1581091870627-3e7b5d8ef0c3') center/cover no-repeat;
   color:white;
   padding:120px 20px;
 }
@@ -97,10 +122,26 @@ section{
   border-radius:10px;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
   transition:0.3s;
+  text-align:left;
+}
+
+.card img{
+  max-width:50px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  margin-top:0;
 }
 
 .card:hover{
   transform:translateY(-5px);
+}
+
+.reference-img{
+  max-width:300px;
+  border-radius:10px;
+  margin:10px;
 }
 
 footer{
@@ -111,19 +152,11 @@ footer{
   margin-top:60px;
 }
 
-.lang-buttons{
-  text-align:center;
-  margin:20px;
-}
-
-.lang-buttons button{
-  padding:8px 14px;
-  margin:5px;
-  border:none;
-  border-radius:5px;
-  background:#1f4ed8;
-  color:white;
-  cursor:pointer;
+@media(max-width:768px){
+  .cards{
+    flex-direction:column;
+    align-items:center;
+  }
 }
 </style>
 </head>
@@ -136,6 +169,7 @@ footer{
     <button onclick="showSection('pocetna')">Početna</button>
     <button onclick="showSection('onama')">O nama</button>
     <button onclick="showSection('usluge')">Usluge</button>
+    <button onclick="showSection('reference')">Reference</button>
     <button onclick="showSection('kontakt')">Kontakt</button>
   </nav>
 </header>
@@ -147,45 +181,83 @@ footer{
 </div>
 
 <!-- HERO -->
-<section id="pocetna" class="hero">
-  <h1>Industrijska automatizacija nove generacije</h1>
-  <p>Projektujemo, programiramo i implementiramo napredne sisteme automatike za industriju, proizvodnju i energetiku.</p>
-  <button class="btn-main" onclick="showSection('kontakt')">Pošaljite upit</button>
+<section id="pocetna" class="hero show">
+  <h1 data-bs="Industrijska automatizacija nove generacije"
+      data-en="Next-Generation Industrial Automation"
+      data-de="Automatisierung der nächsten Generation">
+      Industrijska automatizacija nove generacije
+  </h1>
+  <p data-bs="Projektujemo, programiramo i implementiramo napredne sisteme automatike za industriju, proizvodnju i energetiku."
+     data-en="We design, program, and implement advanced automation systems for industry, manufacturing, and energy."
+     data-de="Wir entwerfen, programmieren und implementieren fortschrittliche Automatisierungssysteme für Industrie, Produktion und Energie.">
+     Projektujemo, programiramo i implementiramo napredne sisteme automatike za industriju, proizvodnju i energetiku.
+  </p>
+  <button class="btn-main" onclick="showSection('kontakt')"
+      data-bs="Pošaljite upit"
+      data-en="Send Inquiry"
+      data-de="Anfrage senden">
+      Pošaljite upit
+  </button>
 </section>
 
 <!-- O NAMA -->
-<section id="onama" style="display:none;">
-  <h1>O nama</h1>
-  <p>
-  Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata. Naš tim čine iskusni inženjeri i tehničari sa snažnim industrijskim iskustvom u oblasti PLC programiranja, HMI sistema, izrade upravljačkih ormara, integracije senzora i pogonskih sistema te optimizacije proizvodnih procesa. Poseban fokus stavljamo na pouzdanost, energetsku efikasnost i dugoročnu održivost sistema. Svakom klijentu pristupamo individualno, analizirajući njegove potrebe i nudeći tehnički i ekonomski optimalna rješenja. Naš cilj je da budemo dugoročan partner u modernizaciji i digitalizaciji industrije.
+<section id="onama">
+  <h1 data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</h1>
+  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata. Naš tim čine iskusni inženjeri i tehničari sa snažnim industrijskim iskustvom u oblasti PLC programiranja, HMI sistema, izrade upravljačkih ormara, integracije senzora i pogonskih sistema te optimizacije proizvodnih procesa. Poseban fokus stavljamo na pouzdanost, energetsku efikasnost i dugoročnu održivost sistema. Svakom klijentu pristupamo individualno, analizirajući njegove potrebe i nudeći tehnički i ekonomski optimalna rješenja. Naš cilj je da budemo dugoročan partner u modernizaciji i digitalizaciji industrije."
+     data-en="We are specialists in the design, development, and implementation of industrial automation systems with many years of experience delivering complex technical and production projects. Our team consists of experienced engineers and technicians with strong industrial know-how in PLC programming, HMI systems, control cabinet manufacturing, sensor and drive integration, and process optimization. We focus on reliability, energy efficiency, and long-term system sustainability. We approach every client individually, analyzing their needs and offering technically and economically optimal solutions. Our goal is to be a long-term partner in industrial modernization and digitalization."
+     data-de="Wir sind Spezialisten für die Planung, Entwicklung und Implementierung industrieller Automatisierungssysteme mit langjähriger Erfahrung in der Realisierung komplexer technischer und produktiver Projekte. Unser Team besteht aus erfahrenen Ingenieuren und Technikern mit starkem Industrie-Know-how in PLC-Programmierung, HMI-Systemen, Schaltschrankbau, Sensor- und Antriebsintegration sowie Prozessoptimierung. Wir legen Wert auf Zuverlässigkeit, Energieeffizienz und langfristige Nachhaltigkeit der Systeme. Wir gehen auf jeden Kunden individuell ein, analysieren seine Bedürfnisse und bieten technisch und wirtschaftlich optimale Lösungen. Unser Ziel ist es, ein langfristiger Partner in der Modernisierung und Digitalisierung der Industrie zu sein.">
+      Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike...
   </p>
 </section>
 
 <!-- USLUGE -->
-<section id="usluge" style="display:none;">
-  <h1>Naše usluge</h1>
+<section id="usluge">
+  <h1 data-bs="Naše usluge" data-en="Our Services" data-de="Unsere Dienstleistungen">Naše usluge</h1>
   <div class="cards">
     <div class="card">
-      <h3>PLC & HMI Programiranje</h3>
-      <p>Razvoj i optimizacija upravljačkih sistema.</p>
+      <img src="https://images.unsplash.com/photo-1581090700224-872f3c9a73d2" alt="PLC Icon">
+      <h3 data-bs="PLC & HMI Programiranje" data-en="PLC & HMI Programming" data-de="PLC & HMI Programmierung">PLC & HMI Programiranje</h3>
+      <p data-bs="Razvoj i optimizacija upravljačkih sistema." data-en="Development and optimization of control systems." data-de="Entwicklung und Optimierung von Steuerungssystemen.">
+        Razvoj i optimizacija upravljačkih sistema.
+      </p>
     </div>
     <div class="card">
-      <h3>Izrada Upravljačkih Ormara</h3>
-      <p>Projektovanje, ožičavanje i puštanje u rad.</p>
+      <img src="https://images.unsplash.com/photo-1581090911559-2f6e603b2f25" alt="Control Cabinet">
+      <h3 data-bs="Izrada Upravljačkih Ormara" data-en="Control Cabinet Manufacturing" data-de="Herstellung von Schaltschränken">Izrada Upravljačkih Ormara</h3>
+      <p data-bs="Projektovanje, ožičavanje i puštanje u rad." data-en="Design, wiring and commissioning." data-de="Planung, Verdrahtung und Inbetriebnahme.">
+        Projektovanje, ožičavanje i puštanje u rad.
+      </p>
     </div>
     <div class="card">
-      <h3>Modernizacija Postrojenja</h3>
-      <p>Optimizacija i unapređenje postojećih sistema.</p>
+      <img src="https://images.unsplash.com/photo-1581091012184-2f9b7b376f6a" alt="Modernization">
+      <h3 data-bs="Modernizacija Postrojenja" data-en="Plant Modernization" data-de="Modernisierung von Anlagen">Modernizacija Postrojenja</h3>
+      <p data-bs="Optimizacija i unapređenje postojećih sistema." data-en="Optimization and improvement of existing systems." data-de="Optimierung und Verbesserung bestehender Systeme.">
+        Optimizacija i unapređenje postojećih sistema.
+      </p>
     </div>
   </div>
 </section>
 
+<!-- REFERENCE / PROJEKTI -->
+<section id="reference">
+  <h1 data-bs="Reference / Projekti" data-en="References / Projects" data-de="Referenzen / Projekte">Reference / Projekti</h1>
+  <div class="cards">
+    <img class="reference-img" src="https://images.unsplash.com/photo-1581090889326-bf4262b57692" alt="Projekt 1">
+    <img class="reference-img" src="https://images.unsplash.com/photo-1581090889310-d3f0bbf228a0" alt="Projekt 2">
+    <img class="reference-img" src="https://images.unsplash.com/photo-1581090889315-b7a42e4255d2" alt="Projekt 3">
+  </div>
+</section>
+
 <!-- KONTAKT -->
-<section id="kontakt" style="display:none;">
-  <h1>Kontakt</h1>
-  <p>Za poslovne upite kontaktirajte nas putem forme.</p>
+<section id="kontakt">
+  <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
+  <p data-bs="Za poslovne upite kontaktirajte nas putem forme."
+     data-en="For business inquiries, contact us via the form."
+     data-de="Für Geschäftsanfragen kontaktieren Sie uns über das Formular.">
+     Za poslovne upite kontaktirajte nas putem forme.
+  </p>
   <a href="https://forms.gle/AK3RVLqDqPV9T5Xv6" target="_blank">
-    <button class="btn-main">Otvorite formu</button>
+    <button class="btn-main" data-bs="Otvorite formu" data-en="Open Form" data-de="Formular öffnen">Otvorite formu</button>
   </a>
 </section>
 
@@ -195,9 +267,28 @@ footer{
 
 <script>
 function showSection(id){
-  document.querySelectorAll('section').forEach(s => s.style.display='none');
-  document.getElementById(id).style.display='block';
+  document.querySelectorAll('section').forEach(s => s.classList.remove('show'));
+  document.getElementById(id).classList.add('show');
+  window.scrollTo(0,0);
 }
+
+// Language switch
+function setLang(lang){
+  document.querySelectorAll('[data-bs], [data-en], [data-de]').forEach(el => {
+    if(lang==='bs' && el.dataset.bs) el.textContent = el.dataset.bs;
+    if(lang==='en' && el.dataset.en) el.textContent = el.dataset.en;
+    if(lang==='de' && el.dataset.de) el.textContent = el.dataset.de;
+  });
+}
+
+// Fade-in on scroll
+window.addEventListener('scroll', function(){
+  document.querySelectorAll('section').forEach(sec=>{
+    const top = sec.getBoundingClientRect().top;
+    const height = window.innerHeight;
+    if(top < height - 100) sec.classList.add('show');
+  });
+});
 </script>
 
 </body>
