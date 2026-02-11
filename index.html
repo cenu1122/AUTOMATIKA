@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Automatika Nusret Halilović</title>
-
 <style>
 body {
   margin:0;
@@ -12,25 +11,25 @@ body {
   background:#f4f6f9;
   color:#222;
 }
-header{
+header {
   background:#004080;
   color:white;
-  padding:15px 20px;
+  padding:10px 20px;
   display:flex;
-  flex-direction:column; /* logo iznad dugmadi */
-  align-items:center; /* centriramo logo i dugmad */
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap: wrap;
 }
 header img {
-  margin-bottom:10px;
+  height:50px;
 }
 nav {
   display:flex;
-  gap:10px;
   justify-content:center;
-  flex-wrap:wrap;
-  margin-bottom:10px;
+  flex:1;
+  gap:10px;
 }
-nav button{
+nav button, .lang-buttons button {
   padding:8px 12px;
   cursor:pointer;
   background:#0066cc;
@@ -39,25 +38,24 @@ nav button{
   border-radius:4px;
   transition:0.3s;
 }
-nav button:hover{
+nav button:hover, .lang-buttons button:hover {
   background:#004c99;
 }
-.lang-buttons{
-  text-align:center;
-  margin:10px 0;
-}
-.lang-buttons button{
-  margin:0 5px;
-  padding:6px 12px;
-  border:none;
-  border-radius:4px;
-  background:#0066cc;
-  color:white;
-  cursor:pointer;
+.lang-buttons {
+  display:flex;
+  justify-content:flex-end;
+  gap:5px;
 }
 section{
   padding:40px 20px;
   text-align:center;
+  opacity:0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+section.visible{
+  opacity:1;
+  transform: translateY(0);
 }
 .section-img{
   max-width:300px;
@@ -121,17 +119,17 @@ section{
 .reference-img:hover{
   transform:scale(1.05);
 }
-.btn-main{
+.btn-back {
   margin-top:20px;
-  padding:10px 18px;
-  background:#0066cc;
-  color:white;
+  padding:8px 16px;
   border:none;
   border-radius:5px;
+  background:#0066cc;
+  color:white;
   cursor:pointer;
   transition:0.3s;
 }
-.btn-main:hover{
+.btn-back:hover{
   background:#004c99;
 }
 footer{
@@ -142,11 +140,10 @@ footer{
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo" height="50">
+  <img src="logo.png" alt="Logo">
   <nav>
     <button data-bs="Početna" data-en="Home" data-de="Start" onclick="showSection('pocetna')">Početna</button>
     <button data-bs="O nama" data-en="About" data-de="Über uns" onclick="showSection('onama')">O nama</button>
@@ -155,9 +152,9 @@ footer{
     <button data-bs="Kontakt" data-en="Contact" data-de="Kontakt" onclick="showSection('kontakt')">Kontakt</button>
   </nav>
   <div class="lang-buttons">
-    <button onclick="setLang('bs')">Bosanski</button>
-    <button onclick="setLang('en')">English</button>
-    <button onclick="setLang('de')">Deutsch</button>
+    <button onclick="setLang('bs')">BS</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('de')">DE</button>
   </div>
 </header>
 
@@ -169,18 +166,18 @@ footer{
   <img class="section-img" src="pocetna.png" alt="Početna ilustracija">
 </section>
 
+<!-- O NAMA -->
 <section id="onama" style="display:none;">
   <h1 data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</h1>
-  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom..." data-en="We are specialists in industrial automation with many years of experience..." data-de="Wir sind Spezialisten für industrielle Automatisierung mit langjähriger Erfahrung...">
-    Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom...
-  </p>
+  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom..." data-en="We are specialists in the design, development, and implementation of industrial automation systems..." data-de="Wir sind Spezialisten für die Planung, Entwicklung und Implementierung industrieller Automatisierungssysteme...">Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom...</p>
   <img class="section-img" src="onama.png" alt="O nama ilustracija">
-  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
+  <button class="btn-back" onclick="showSection('pocetna')">← Povratak na početnu</button>
 </section>
 
+<!-- USLUGE -->
 <section id="usluge" style="display:none;">
   <h1 data-bs="Naše usluge" data-en="Our Services" data-de="Unsere Dienstleistungen">Naše usluge</h1>
-  <p data-bs="Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara." data-en="We offer complete solutions in industrial automation..." data-de="Wir bieten komplette Lösungen in der industriellen Automatisierung...">Nudimo kompletna rješenja u industrijskoj automatizaciji...</p>
+  <p data-bs="Nudimo kompletna rješenja u industrijskoj automatizaciji..." data-en="We offer complete solutions in industrial automation..." data-de="Wir bieten komplette Lösungen in der industriellen Automatisierung...">Nudimo kompletna rješenja u industrijskoj automatizaciji...</p>
   <img class="section-img" src="usluge.png" alt="Usluge ilustracija">
   <div class="cards">
     <div class="card">
@@ -199,9 +196,10 @@ footer{
       <p class="card-desc" data-bs="Optimizacija i unapređenje postojećih sistema." data-en="Optimization and improvement of existing systems." data-de="Optimierung und Verbesserung bestehender Systeme.">Optimizacija i unapređenje postojećih sistema.</p>
     </div>
   </div>
-  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
+  <button class="btn-back" onclick="showSection('pocetna')">← Povratak na početnu</button>
 </section>
 
+<!-- REFERENCE -->
 <section id="reference" style="display:none;">
   <h1 data-bs="Reference / Projekti" data-en="References / Projects" data-de="Referenzen / Projekte">Reference / Projekti</h1>
   <div class="reference-card">
@@ -213,9 +211,10 @@ footer{
       <img class="reference-img" src="reference3.png" alt="Postolje 3">
     </div>
   </div>
-  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
+  <button class="btn-back" onclick="showSection('pocetna')">← Povratak na početnu</button>
 </section>
 
+<!-- KONTAKT -->
 <section id="kontakt" style="display:none;">
   <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
   <p data-bs="Za poslovne upite kontaktirajte nas putem forme." data-en="For business inquiries, contact us via the form." data-de="Für Geschäftsanfragen kontaktieren Sie uns über das Formular.">Za poslovne upite kontaktirajte nas putem forme.</p>
@@ -223,7 +222,7 @@ footer{
   <a href="https://forms.gle/AK3RVLqDqPV9T5Xv6" target="_blank">
     <button class="btn-main" data-bs="Otvorite formu" data-en="Open Form" data-de="Formular öffnen">Otvorite formu</button>
   </a>
-  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
+  <button class="btn-back" onclick="showSection('pocetna')">← Povratak na početnu</button>
 </section>
 
 <footer>
@@ -231,12 +230,16 @@ footer{
 </footer>
 
 <script>
+// Prikaz sekcije
 function showSection(id){
   document.querySelectorAll('section').forEach(s=>s.style.display='none');
-  document.getElementById(id).style.display='block';
+  const sec = document.getElementById(id);
+  sec.style.display='block';
+  sec.classList.add('visible');
   window.scrollTo(0,0);
 }
 
+// Jezik
 function setLang(lang){
   document.querySelectorAll('[data-bs], [data-en], [data-de]').forEach(el=>{
     if(lang==='bs' && el.dataset.bs) el.textContent=el.dataset.bs;
@@ -244,7 +247,17 @@ function setLang(lang){
     if(lang==='de' && el.dataset.de) el.textContent=el.dataset.de;
   });
 }
-</script>
 
+// Animacija fade-in kad scrollaš
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.1});
+
+document.querySelectorAll('section').forEach(s=>observer.observe(s));
+</script>
 </body>
 </html>
