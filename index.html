@@ -1,82 +1,196 @@
 <!DOCTYPE html>
 <html lang="bs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automatika Nusret Halilović</title>
-  <style>
-    body {font-family: Arial, sans-serif; margin:0; padding:0;}
-    header {background: #004080; color: white; padding: 10px; display:flex; align-items:center; justify-content: space-between;}
-    header img {height:50px;}
-    nav button {margin:0 5px; padding:8px 12px; cursor:pointer; background:#0066cc; color:white; border:none; border-radius:4px;}
-    section {padding:40px; text-align:center;}
-    img.section-img {max-width:200px; margin:20px 0;}
-    footer {background:#004080; color:white; text-align:center; padding:20px;}
-    .lang-buttons {margin-top:10px;}
-    .lang-buttons button {margin:0 5px;}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatika Nusret Halilović</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Montserrat', sans-serif;
+  background:#f4f6f9;
+  color:#222;
+}
+
+header{
+  background:#0a1f44;
+  color:white;
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h2{
+  margin:0;
+  font-weight:700;
+}
+
+nav button{
+  background:#1f4ed8;
+  border:none;
+  padding:10px 15px;
+  margin-left:8px;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+nav button:hover{
+  background:#163bb3;
+}
+
+section{
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+  text-align:center;
+}
+
+.hero{
+  background:linear-gradient(rgba(10,31,68,0.85), rgba(10,31,68,0.85)),
+  url('https://images.unsplash.com/photo-1581091870627-3e7b5d8ef0c3');
+  background-size:cover;
+  background-position:center;
+  color:white;
+  padding:120px 20px;
+}
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:700px;
+  margin:auto;
+}
+
+.btn-main{
+  margin-top:30px;
+  padding:12px 25px;
+  background:#1f4ed8;
+  border:none;
+  color:white;
+  font-size:16px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.cards{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:40px;
+}
+
+.card{
+  background:white;
+  padding:30px;
+  width:300px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+footer{
+  background:#0a1f44;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:60px;
+}
+
+.lang-buttons{
+  text-align:center;
+  margin:20px;
+}
+
+.lang-buttons button{
+  padding:8px 14px;
+  margin:5px;
+  border:none;
+  border-radius:5px;
+  background:#1f4ed8;
+  color:white;
+  cursor:pointer;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo">
+  <h2>Automatika Nusret Halilović</h2>
   <nav>
-    <button onclick="showSection('pocetna')">Početna / Home / Start</button>
-    <button onclick="showSection('onama')">O nama / About / Über uns</button>
-    <button onclick="showSection('usluge')">Usluge / Services / Dienstleistungen</button>
-    <button onclick="showSection('kontakt')">Kontakt / Contact / Kontakt</button>
+    <button onclick="showSection('pocetna')">Početna</button>
+    <button onclick="showSection('onama')">O nama</button>
+    <button onclick="showSection('usluge')">Usluge</button>
+    <button onclick="showSection('kontakt')">Kontakt</button>
   </nav>
 </header>
 
-<div class="lang-buttons" style="text-align:center; margin:10px;">
+<div class="lang-buttons">
   <button onclick="setLang('bs')">Bosanski</button>
   <button onclick="setLang('en')">English</button>
   <button onclick="setLang('de')">Deutsch</button>
 </div>
 
-<section id="pocetna">
-  <h1 data-bs="Dobrodošli na Automatiku Nusret Halilović"
-      data-en="Welcome to Nusret Halilović Automation"
-      data-de="Willkommen bei Nusret Halilović Automation">Dobrodošli na Automatiku Nusret Halilović</h1>
-  <img class="section-img" src="pocetna.png" alt="Početna">
-  <p data-bs="Projektujemo i izrađujemo automatiku po vašim potrebama."
-     data-en="We design and build automation according to your needs."
-     data-de="Wir entwerfen und bauen Automatisierung nach Ihren Bedürfnissen.">Projektujemo i izrađujemo automatiku po vašim potrebama.</p>
-  <button onclick="showSection('kontakt')">Pošaljite upit / Send Inquiry / Anfrage senden</button>
+<!-- HERO -->
+<section id="pocetna" class="hero">
+  <h1>Industrijska automatizacija nove generacije</h1>
+  <p>Projektujemo, programiramo i implementiramo napredne sisteme automatike za industriju, proizvodnju i energetiku.</p>
+  <button class="btn-main" onclick="showSection('kontakt')">Pošaljite upit</button>
 </section>
 
-<section id="o-nama">
-    <div class="container">
-        <h2>O nama</h2>
-        <p>
-            Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata. Naš tim čine iskusni inženjeri i tehničari koji kombinuju znanje iz mašinstva, elektrotehnike, energetike i upravljanja procesima, sa snažnim praktičnim iskustvom iz industrijskog okruženja. Tokom godina rada učestvovali smo u modernizaciji proizvodnih linija, optimizaciji energetskih sistema, ugradnji i programiranju PLC i HMI sistema, izradi i ožičavanju upravljačkih ormara, kao i integraciji savremenih senzorskih i pogonskih rješenja. Posebnu pažnju posvećujemo preciznom planiranju, tehničkoj analizi i izradi rješenja koja povećavaju efikasnost, sigurnost i pouzdanost rada postrojenja. Naš pristup podrazumijeva detaljno razumijevanje potreba klijenta, izradu kompletne tehničke dokumentacije, nadzor nad realizacijom projekta te puštanje sistema u rad uz obuku osoblja i kontinuiranu tehničku podršku. Vjerujemo da kvalitetna automatizacija nije samo tehničko rješenje, već strateška investicija koja dugoročno smanjuje troškove, povećava produktivnost i unapređuje konkurentnost kompanije. Radimo odgovorno, transparentno i profesionalno, poštujući rokove i najviše tehničke standarde, sa ciljem da postanemo dugoročan i pouzdan partner u razvoju i modernizaciji industrijskih sistema.
-        </p>
-    </div>
+<!-- O NAMA -->
+<section id="onama" style="display:none;">
+  <h1>O nama</h1>
+  <p>
+  Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata. Naš tim čine iskusni inženjeri i tehničari sa snažnim industrijskim iskustvom u oblasti PLC programiranja, HMI sistema, izrade upravljačkih ormara, integracije senzora i pogonskih sistema te optimizacije proizvodnih procesa. Poseban fokus stavljamo na pouzdanost, energetsku efikasnost i dugoročnu održivost sistema. Svakom klijentu pristupamo individualno, analizirajući njegove potrebe i nudeći tehnički i ekonomski optimalna rješenja. Naš cilj je da budemo dugoročan partner u modernizaciji i digitalizaciji industrije.
+  </p>
 </section>
 
-
-
+<!-- USLUGE -->
 <section id="usluge" style="display:none;">
-  <h1 data-bs="Usluge" data-en="Services" data-de="Dienstleistungen">Usluge</h1>
-  <img class="section-img" src="usluge.png" alt="Usluge">
-  <p data-bs="Nudimo projektovanje, izradu i programiranje automatike."
-     data-en="We offer automation design, construction, and programming."
-     data-de="Wir bieten Automatisierungsdesign, Bau und Programmierung an.">Nudimo projektovanje, izradu i programiranje automatike.</p>
-  <button onclick="showSection('pocetna')">Nazad na početnu / Back to Home / Zur Startseite</button>
+  <h1>Naše usluge</h1>
+  <div class="cards">
+    <div class="card">
+      <h3>PLC & HMI Programiranje</h3>
+      <p>Razvoj i optimizacija upravljačkih sistema.</p>
+    </div>
+    <div class="card">
+      <h3>Izrada Upravljačkih Ormara</h3>
+      <p>Projektovanje, ožičavanje i puštanje u rad.</p>
+    </div>
+    <div class="card">
+      <h3>Modernizacija Postrojenja</h3>
+      <p>Optimizacija i unapređenje postojećih sistema.</p>
+    </div>
+  </div>
 </section>
 
+<!-- KONTAKT -->
 <section id="kontakt" style="display:none;">
-  <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
-  <img class="section-img" src="kontakt.png" alt="Kontakt">
-  <p data-bs="Za upite popunite formu ispod:" data-en="For inquiries, fill the form below:" data-de="Für Anfragen füllen Sie das Formular unten aus:">Za upite popunite formu ispod:</p>
+  <h1>Kontakt</h1>
+  <p>Za poslovne upite kontaktirajte nas putem forme.</p>
   <a href="https://forms.gle/AK3RVLqDqPV9T5Xv6" target="_blank">
-    <button>Otvorite formu / Open Form / Formular öffnen</button>
+    <button class="btn-main">Otvorite formu</button>
   </a>
-  <button onclick="showSection('pocetna')">Nazad na početnu / Back to Home / Zur Startseite</button>
 </section>
 
 <footer>
-  © 2026 Nusret Halilović | <a href="https://radnicieu.site" target="_blank" style="color:white;">radnicieu.site</a>
+  © 2026 Nusret Halilović | Industrijska Automatika
 </footer>
 
 <script>
@@ -84,16 +198,7 @@ function showSection(id){
   document.querySelectorAll('section').forEach(s => s.style.display='none');
   document.getElementById(id).style.display='block';
 }
-
-// Language switch
-function setLang(lang){
-  document.querySelectorAll('h1, p').forEach(el => {
-    if(el.dataset[lang]) el.textContent = el.dataset[lang];
-  });
-}
 </script>
 
 </body>
 </html>
-
-
