@@ -12,23 +12,35 @@ body {
   background:#f4f6f9;
   color:#222;
 }
+
+/* HEADER */
 header{
   background:#004080;
   color:white;
   padding:10px 20px;
-  display:flex;
-  flex-direction: column;
-  align-items:center;
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
-nav {
+
+/* Logo + dugmad centrirana */
+header .header-content{
   display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:5px;
+  justify-content: center; /* centriramo horizontalno */
+  align-items: center;
+  gap:30px;
 }
+
+header img{
+  height:50px;
+}
+
+/* Dugmad sekcija */
 nav button{
-  padding:8px 12px;
+  padding:8px 14px;
   cursor:pointer;
   background:#0066cc;
   color:white;
@@ -39,9 +51,11 @@ nav button{
 nav button:hover{
   background:#004c99;
 }
+
+/* Dugmad jezika ispod headera */
 .lang-buttons{
   text-align:center;
-  margin:10px;
+  margin-top:80px; /* da ne bude ispod headera */
 }
 .lang-buttons button{
   margin:0 5px;
@@ -52,12 +66,15 @@ nav button:hover{
   color:white;
   cursor:pointer;
 }
+
+/* SEKCIJE */
 section{
-  padding:40px 20px;
+  padding:120px 20px 40px; /* top padding zbog fiksnog headera */
   text-align:center;
 }
+
 .section-img{
-  max-width:300px;
+  max-width:500px;
   margin-top:20px;
   border-radius:10px;
   box-shadow:0 5px 15px rgba(0,0,0,0.1);
@@ -66,6 +83,8 @@ section{
 .section-img:hover{
   transform:scale(1.02);
 }
+
+/* KARTE / USLUGE */
 .cards{
   display:flex;
   gap:20px;
@@ -82,19 +101,18 @@ section{
   text-align:center;
   transition:0.3s;
 }
-.card-icon img{
-  width:50px;
-  height:50px;
-  margin-bottom:10px;
-}
 .card:hover{
   transform:translateY(-5px);
   box-shadow:0 15px 25px rgba(0,0,0,0.15);
   background:#f0f4ff;
 }
-.card-desc{
-  margin-top:10px;
+.card-icon img{
+  width:50px;
+  height:50px;
+  margin-bottom:10px;
 }
+
+/* REFERENCE */
 .reference-card{
   background:white;
   padding:25px;
@@ -118,11 +136,29 @@ section{
 .reference-img:hover{
   transform:scale(1.05);
 }
+
+/* FOOTER */
 footer{
   background:#004080;
   color:white;
   text-align:center;
   padding:20px;
+  margin-top:40px;
+}
+
+/* Glavni hero button */
+.btn-main{
+  padding:10px 18px;
+  margin-top:20px;
+  background:#0066cc;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.btn-main:hover{
+  background:#004c99;
 }
 </style>
 </head>
@@ -130,14 +166,16 @@ footer{
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo" height="50">
-  <nav>
-    <button data-bs="Početna" data-en="Home" data-de="Start" onclick="showSection('pocetna')">Početna</button>
-    <button data-bs="O nama" data-en="About" data-de="Über uns" onclick="showSection('onama')">O nama</button>
-    <button data-bs="Usluge" data-en="Services" data-de="Dienstleistungen" onclick="showSection('usluge')">Usluge</button>
-    <button data-bs="Reference" data-en="References" data-de="Referenzen" onclick="showSection('reference')">Reference</button>
-    <button data-bs="Kontakt" data-en="Contact" data-de="Kontakt" onclick="showSection('kontakt')">Kontakt</button>
-  </nav>
+  <div class="header-content">
+    <img src="logo.png" alt="Logo">
+    <nav>
+      <button data-bs="Početna" onclick="showSection('pocetna')">Početna</button>
+      <button data-bs="O nama" onclick="showSection('onama')">O nama</button>
+      <button data-bs="Usluge" onclick="showSection('usluge')">Usluge</button>
+      <button data-bs="Reference" onclick="showSection('reference')">Reference</button>
+      <button data-bs="Kontakt" onclick="showSection('kontakt')">Kontakt</button>
+    </nav>
+  </div>
 </header>
 
 <div class="lang-buttons">
@@ -148,63 +186,41 @@ footer{
 
 <!-- POČETNA -->
 <section id="pocetna">
-  <h1 data-bs="Dobrodošli na Automatiku Nusret Halilović" data-en="Welcome to Nusret Halilović Automation" data-de="Willkommen bei Nusret Halilović Automation">Dobrodošli na Automatiku Nusret Halilović</h1>
-  <p data-bs="Projektujemo i izrađujemo automatiku po vašim potrebama." data-en="We design and build automation according to your needs." data-de="Wir entwerfen und bauen Automatisierung nach Ihren Bedürfnissen.">
-    Projektujemo i izrađujemo automatiku po vašim potrebama.
-  </p>
-  <button class="btn-main" data-bs="Pošaljite upit" data-en="Send Inquiry" data-de="Anfrage senden" onclick="showSection('kontakt')">Pošaljite upit</button>
-  <img class="section-img" src="pocetna.png" alt="Početna ilustracija">
+  <h1 data-bs="Dobrodošli na Automatiku Nusret Halilović">Dobrodošli na Automatiku Nusret Halilović</h1>
+  <p data-bs="Projektujemo i izrađujemo automatiku po vašim potrebama.">Projektujemo i izrađujemo automatiku po vašim potrebama.</p>
+  <button class="btn-main" onclick="showSection('kontakt')">Pošaljite upit</button>
+  <img class="section-img" src="onama.png" alt="Hero slika">
 </section>
 
-<!-- O NAMA -->
 <section id="onama" style="display:none;">
-  <h1 data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</h1>
-  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom..." 
-     data-en="We are experts in automation design and implementation with many years of experience..." 
-     data-de="Wir sind Experten für Automatisierungsdesign und -implementierung mit langjähriger Erfahrung...">
-    Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata. Naš tim čine iskusni inženjeri i tehničari koji kombinuju znanje iz mašinstva, elektrotehnike, energetike i upravljanja procesima, sa snažnim praktičnim iskustvom iz industrijskog okruženja. Tokom godina rada učestvovali smo u modernizaciji proizvodnih linija, optimizaciji energetskih sistema, ugradnji i programiranju PLC i HMI sistema, izradi i ožičavanju upravljačkih ormara, kao i integraciji savremenih senzorskih i pogonskih rješenja. Posebnu pažnju posvećujemo preciznom planiranju, tehničkoj analizi i izradi rješenja koja povećavaju efikasnost, sigurnost i pouzdanost rada postrojenja. Naš pristup podrazumijeva detaljno razumijevanje potreba klijenta, izradu kompletne tehničke dokumentacije, nadzor nad realizacijom projekta te puštanje sistema u rad uz obuku osoblja i kontinuiranu tehničku podršku. Vjerujemo da kvalitetna automatizacija nije samo tehničko rješenje, već strateška investicija koja dugoročno smanjuje troškove, povećava produktivnost i unapređuje konkurentnost kompanije. Radimo odgovorno, transparentno i profesionalno, poštujući rokove i najviše tehničke standarde, sa ciljem da postanemo dugoročan i pouzdan partner u razvoju i modernizaciji industrijskih sistema.
-  </p>
+  <h1>O nama</h1>
+  <p>Mi smo stručnjaci za projektovanje i implementaciju industrijske automatike...</p>
   <img class="section-img" src="onama.png" alt="O nama ilustracija">
 </section>
 
-<!-- USLUGE -->
 <section id="usluge" style="display:none;">
-  <h1 data-bs="Naše usluge" data-en="Our Services" data-de="Unsere Dienstleistungen">Naše usluge</h1>
-  <p data-bs="Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara." 
-     data-en="We offer complete solutions in industrial automation, PLC programming, and control cabinet manufacturing." 
-     data-de="Wir bieten komplette Lösungen in der industriellen Automatisierung, SPS-Programmierung und Schaltschrankbau.">
-    Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara.
-  </p>
+  <h1>Naše usluge</h1>
+  <p>Nudimo kompletna rješenja u industrijskoj automatizaciji...</p>
   <img class="section-img" src="usluge.png" alt="Usluge ilustracija">
 </section>
 
-<!-- REFERENCE -->
 <section id="reference" style="display:none;">
-  <h1 data-bs="Reference / Projekti" data-en="References / Projects" data-de="Referenzen / Projekte">Reference / Projekti</h1>
+  <h1>Reference</h1>
   <div class="reference-card">
-    <h3 data-bs="Izrada postolja za automatsko rezanje profila i automatizacija istog" data-en="Construction of frame for automatic profile cutting and its automation" data-de="Herstellung eines Gestells für automatisches Profilschneiden und dessen Automatisierung">
-      Izrada postolja za automatsko rezanje profila i automatizacija istog
-    </h3>
-    <p data-bs="Projekt je obuhvatio kompletno projektovanje i izradu metalnog postolja..." data-en="The project included full design and construction of the metal frame..." data-de="Das Projekt umfasste die vollständige Planung und Herstellung des Metallgestells...">
-      Projekt je obuhvatio kompletno projektovanje i izradu metalnog postolja...
-    </p>
+    <h3>Izrada postolja za automatsko rezanje profila</h3>
     <div class="reference-images">
-      <img class="reference-img" src="reference1.png" alt="Postolje 1">
-      <img class="reference-img" src="reference2.png" alt="Postolje 2">
-      <img class="reference-img" src="reference3.png" alt="Postolje 3">
+      <img class="reference-img" src="reference1.png" alt="">
+      <img class="reference-img" src="reference2.png" alt="">
     </div>
   </div>
 </section>
 
-<!-- KONTAKT -->
 <section id="kontakt" style="display:none;">
-  <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
-  <p data-bs="Za poslovne upite kontaktirajte nas putem forme." data-en="For business inquiries, contact us via the form." data-de="Für Geschäftsanfragen kontaktieren Sie uns über das Formular.">
-    Za poslovne upite kontaktirajte nas putem forme.
-  </p>
+  <h1>Kontakt</h1>
+  <p>Za poslovne upite kontaktirajte nas putem forme.</p>
   <img class="section-img" src="kontakt.png" alt="Kontakt ilustracija">
   <a href="https://forms.gle/AK3RVLqDqPV9T5Xv6" target="_blank">
-    <button class="btn-main" data-bs="Otvorite formu" data-en="Open Form" data-de="Formular öffnen">Otvorite formu</button>
+    <button class="btn-main">Otvorite formu</button>
   </a>
 </section>
 
@@ -220,7 +236,7 @@ function showSection(id){
 }
 
 function setLang(lang){
-  document.querySelectorAll('[data-bs],[data-en],[data-de]').forEach(el=>{
+  document.querySelectorAll('[data-bs]').forEach(el=>{
     if(lang==='bs' && el.dataset.bs) el.textContent=el.dataset.bs;
     if(lang==='en' && el.dataset.en) el.textContent=el.dataset.en;
     if(lang==='de' && el.dataset.de) el.textContent=el.dataset.de;
