@@ -4,54 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Automatika Nusret Halilović</title>
+
 <style>
-/* ---------- Global ---------- */
 body {
   margin:0;
   font-family: Arial, sans-serif;
   background:#f4f6f9;
   color:#222;
-  scroll-behavior: smooth;
 }
-a {text-decoration:none;}
-
-/* ---------- Header / Hero ---------- */
 header{
   background:#004080;
   color:white;
-  padding:20px 40px;
+  padding:15px 20px;
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position: sticky;
-  top:0;
-  z-index:1000;
+  flex-direction:column; /* logo iznad dugmadi */
+  align-items:center; /* centriramo logo i dugmad */
 }
-header img{
-  height:50px;
+header img {
+  margin-bottom:10px;
 }
-nav{
+nav {
   display:flex;
   gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:10px;
 }
 nav button{
-  padding:10px 15px;
+  padding:8px 12px;
   cursor:pointer;
   background:#0066cc;
   color:white;
   border:none;
   border-radius:4px;
   transition:0.3s;
-  font-weight:600;
 }
 nav button:hover{
   background:#004c99;
 }
-
-/* ---------- Language Buttons ---------- */
 .lang-buttons{
   text-align:center;
-  margin:15px 0;
+  margin:10px 0;
 }
 .lang-buttons button{
   margin:0 5px;
@@ -61,87 +54,41 @@ nav button:hover{
   background:#0066cc;
   color:white;
   cursor:pointer;
-  transition:0.3s;
 }
-.lang-buttons button:hover{
-  background:#004c99;
-}
-
-/* ---------- Sections ---------- */
 section{
-  padding:60px 20px;
+  padding:40px 20px;
   text-align:center;
-  opacity:0;
-  transform:translateY(30px);
-  transition: all 0.8s ease-out;
 }
-section.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* ---------- Hero / Početna ---------- */
-.hero{
-  background: url('hero-bg.jpg') center/cover no-repeat;
-  color:white;
-  padding:100px 20px;
-  position:relative;
-}
-.hero h1{
-  font-size:2.8em;
-  margin-bottom:20px;
-}
-.hero p{
-  font-size:1.2em;
-  margin-bottom:30px;
-}
-.btn-main{
-  background:#ff9900;
-  color:white;
-  padding:12px 25px;
-  font-weight:bold;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-  transition:0.3s;
-}
-.btn-main:hover{
-  background:#e68a00;
-}
-
-/* ---------- Section Images ---------- */
 .section-img{
-  max-width:350px;
-  margin:25px auto;
+  max-width:300px;
+  margin-top:20px;
   border-radius:10px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.2);
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
   transition:0.3s;
 }
 .section-img:hover{
-  transform:scale(1.03);
+  transform:scale(1.02);
 }
-
-/* ---------- Cards / Usluge ---------- */
 .cards{
   display:flex;
   gap:20px;
   flex-wrap:wrap;
   justify-content:center;
-  margin-top:40px;
+  margin-top:30px;
 }
 .card{
   background:white;
-  padding:25px;
-  width:260px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  padding:20px;
+  width:250px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
   text-align:center;
   transition:0.3s;
 }
 .card-icon img{
-  width:60px;
-  height:60px;
-  margin-bottom:15px;
+  width:50px;
+  height:50px;
+  margin-bottom:10px;
 }
 .card:hover{
   transform:translateY(-5px);
@@ -149,55 +96,57 @@ section.visible{
   background:#f0f4ff;
 }
 .card-desc{
-  margin-top:12px;
+  margin-top:10px;
 }
-
-/* ---------- Reference Section ---------- */
 .reference-card{
   background:white;
-  padding:30px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-  margin:40px auto;
-  max-width:900px;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  margin:30px auto;
+  max-width:800px;
 }
 .reference-images{
   display:flex;
   flex-wrap:wrap;
-  gap:15px;
+  gap:10px;
   justify-content:center;
-  margin-top:20px;
+  margin-top:15px;
 }
 .reference-img{
-  max-width:250px;
+  max-width:200px;
   border-radius:10px;
   transition:0.3s;
 }
 .reference-img:hover{
   transform:scale(1.05);
 }
-
-/* ---------- Footer ---------- */
+.btn-main{
+  margin-top:20px;
+  padding:10px 18px;
+  background:#0066cc;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  transition:0.3s;
+}
+.btn-main:hover{
+  background:#004c99;
+}
 footer{
   background:#004080;
   color:white;
   text-align:center;
-  padding:25px;
-}
-
-/* ---------- Responsive ---------- */
-@media(max-width:768px){
-  nav{flex-direction:column; gap:8px;}
-  .cards{flex-direction:column;}
-  .hero h1{font-size:2.2em;}
+  padding:20px;
 }
 </style>
 </head>
+
 <body>
 
-<!-- ---------- Header / Nav ---------- -->
 <header>
-  <img src="logo.png" alt="Logo">
+  <img src="logo.png" alt="Logo" height="50">
   <nav>
     <button data-bs="Početna" data-en="Home" data-de="Start" onclick="showSection('pocetna')">Početna</button>
     <button data-bs="O nama" data-en="About" data-de="Über uns" onclick="showSection('onama')">O nama</button>
@@ -205,50 +154,33 @@ footer{
     <button data-bs="Reference" data-en="References" data-de="Referenzen" onclick="showSection('reference')">Reference</button>
     <button data-bs="Kontakt" data-en="Contact" data-de="Kontakt" onclick="showSection('kontakt')">Kontakt</button>
   </nav>
+  <div class="lang-buttons">
+    <button onclick="setLang('bs')">Bosanski</button>
+    <button onclick="setLang('en')">English</button>
+    <button onclick="setLang('de')">Deutsch</button>
+  </div>
 </header>
 
-<!-- ---------- Language ---------- -->
-<div class="lang-buttons">
-  <button onclick="setLang('bs')">Bosanski</button>
-  <button onclick="setLang('en')">English</button>
-  <button onclick="setLang('de')">Deutsch</button>
-</div>
-
-<!-- ---------- Hero / POČETNA ---------- -->
+<!-- POČETNA -->
 <section id="pocetna">
-  <h1 data-bs="Dobrodošli na Automatiku Nusret Halilović" data-en="Welcome to Nusret Halilović Automation" data-de="Willkommen bei Nusret Halilović Automation">
-    Dobrodošli na Automatiku Nusret Halilović
-  </h1>
-  <p data-bs="Projektujemo i izrađujemo automatiku po vašim potrebama." data-en="We design and build automation according to your needs." data-de="Wir entwerfen und bauen Automatisierung nach Ihren Bedürfnissen.">
-    Projektujemo i izrađujemo automatiku po vašim potrebama.
-  </p>
-  <button class="btn-main" data-bs="Pošaljite upit" data-en="Send Inquiry" data-de="Anfrage senden" onclick="showSection('kontakt')">
-    Pošaljite upit
-  </button>
-  <!-- HERO SLIKA -->
-  <img class="section-img" src="pocetna.png" alt="Hero ilustracija">
+  <h1 data-bs="Dobrodošli na Automatiku Nusret Halilović" data-en="Welcome to Nusret Halilović Automation" data-de="Willkommen bei Nusret Halilović Automation">Dobrodošli na Automatiku Nusret Halilović</h1>
+  <p data-bs="Projektujemo i izrađujemo automatiku po vašim potrebama." data-en="We design and build automation according to your needs." data-de="Wir entwerfen und bauen Automatisierung nach Ihren Bedürfnissen.">Projektujemo i izrađujemo automatiku po vašim potrebama.</p>
+  <button class="btn-main" data-bs="Pošaljite upit" data-en="Send Inquiry" data-de="Anfrage senden" onclick="showSection('kontakt')">Pošaljite upit</button>
+  <img class="section-img" src="pocetna.png" alt="Početna ilustracija">
 </section>
 
-
-<!-- ---------- O NAMA ---------- -->
-<section id="onama">
+<section id="onama" style="display:none;">
   <h1 data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</h1>
-  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom..." 
-     data-en="We are specialists in industrial automation design and implementation with years of experience..." 
-     data-de="Wir sind Spezialisten für die Planung und Implementierung industrieller Automatisierungssysteme mit langjähriger Erfahrung...">
-     Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata...
+  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom..." data-en="We are specialists in industrial automation with many years of experience..." data-de="Wir sind Spezialisten für industrielle Automatisierung mit langjähriger Erfahrung...">
+    Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom...
   </p>
   <img class="section-img" src="onama.png" alt="O nama ilustracija">
+  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
 </section>
 
-<!-- ---------- USLUGE ---------- -->
-<section id="usluge">
+<section id="usluge" style="display:none;">
   <h1 data-bs="Naše usluge" data-en="Our Services" data-de="Unsere Dienstleistungen">Naše usluge</h1>
-  <p data-bs="Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara." 
-     data-en="We offer complete solutions in industrial automation, PLC programming, and control cabinet manufacturing." 
-     data-de="Wir bieten komplette Lösungen in der industriellen Automatisierung, SPS-Programmierung und Schaltschrankbau.">
-     Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara...
-  </p>
+  <p data-bs="Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara." data-en="We offer complete solutions in industrial automation..." data-de="Wir bieten komplette Lösungen in der industriellen Automatisierung...">Nudimo kompletna rješenja u industrijskoj automatizaciji...</p>
   <img class="section-img" src="usluge.png" alt="Usluge ilustracija">
   <div class="cards">
     <div class="card">
@@ -267,10 +199,10 @@ footer{
       <p class="card-desc" data-bs="Optimizacija i unapređenje postojećih sistema." data-en="Optimization and improvement of existing systems." data-de="Optimierung und Verbesserung bestehender Systeme.">Optimizacija i unapređenje postojećih sistema.</p>
     </div>
   </div>
+  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
 </section>
 
-<!-- ---------- REFERENCE ---------- -->
-<section id="reference">
+<section id="reference" style="display:none;">
   <h1 data-bs="Reference / Projekti" data-en="References / Projects" data-de="Referenzen / Projekte">Reference / Projekti</h1>
   <div class="reference-card">
     <h3 data-bs="Izrada postolja za automatsko rezanje profila i automatizacija istog" data-en="Construction of frame for automatic profile cutting and its automation" data-de="Herstellung eines Gestells für automatisches Profilschneiden und dessen Automatisierung">Izrada postolja za automatsko rezanje profila i automatizacija istog</h3>
@@ -281,34 +213,30 @@ footer{
       <img class="reference-img" src="reference3.png" alt="Postolje 3">
     </div>
   </div>
+  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
 </section>
 
-<!-- ---------- KONTAKT ---------- -->
-<section id="kontakt">
+<section id="kontakt" style="display:none;">
   <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
   <p data-bs="Za poslovne upite kontaktirajte nas putem forme." data-en="For business inquiries, contact us via the form." data-de="Für Geschäftsanfragen kontaktieren Sie uns über das Formular.">Za poslovne upite kontaktirajte nas putem forme.</p>
   <img class="section-img" src="kontakt.png" alt="Kontakt ilustracija">
   <a href="https://forms.gle/AK3RVLqDqPV9T5Xv6" target="_blank">
     <button class="btn-main" data-bs="Otvorite formu" data-en="Open Form" data-de="Formular öffnen">Otvorite formu</button>
   </a>
+  <button class="btn-main" onclick="showSection('pocetna')">Povratak na Početnu</button>
 </section>
 
 <footer>
   © 2026 Nusret Halilović | Industrijska Automatika
 </footer>
 
-<!-- ---------- JS ---------- -->
 <script>
-// ---------- Show Section ----------
 function showSection(id){
   document.querySelectorAll('section').forEach(s=>s.style.display='none');
-  const sec = document.getElementById(id);
-  sec.style.display='block';
-  sec.classList.add('visible');
-  window.scrollTo({top:0, behavior:'smooth'});
+  document.getElementById(id).style.display='block';
+  window.scrollTo(0,0);
 }
 
-// ---------- Language ----------
 function setLang(lang){
   document.querySelectorAll('[data-bs], [data-en], [data-de]').forEach(el=>{
     if(lang==='bs' && el.dataset.bs) el.textContent=el.dataset.bs;
@@ -316,19 +244,7 @@ function setLang(lang){
     if(lang==='de' && el.dataset.de) el.textContent=el.dataset.de;
   });
 }
-
-// ---------- Fade-in on scroll ----------
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-},{threshold:0.2});
-document.querySelectorAll('section').forEach(sec=>{
-  observer.observe(sec);
-});
 </script>
+
 </body>
 </html>
-
