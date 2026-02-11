@@ -5,80 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Automatika Nusret Halilović</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body {
+body{
   margin:0;
-  font-family: Arial, sans-serif;
+  font-family:'Montserrat', sans-serif;
   background:#f4f6f9;
   color:#222;
 }
+
 header{
-  position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  padding:20px 40px;
-  z-index:1000;
-  background: rgba(0,64,128,0.5);
+  background:#0a1f44;
   color:white;
-  transition: background 0.4s, padding 0.4s;
+  padding:15px 40px;
   display:flex;
-  justify-content: center;
-  align-items: center;
-}
-header.scrolled{
-  background: rgba(0,64,128,1);
-  padding:10px 40px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  justify-content:space-between;
+  align-items:center;
 }
 
-header nav{
-  display:flex;
-  gap:10px;
+header h2{
+  margin:0;
+  font-weight:700;
 }
 
 nav button{
-  padding:8px 15px;
-  cursor:pointer;
-  background:#0066cc;
-  color:white;
+  background:#1f4ed8;
   border:none;
-  border-radius:4px;
+  padding:10px 15px;
+  margin-left:8px;
+  color:white;
+  border-radius:6px;
+  cursor:pointer;
   transition:0.3s;
-  font-weight: bold;
-}
-nav button:hover{
-  background:#004c99;
 }
 
-.lang-buttons{
-  text-align:center;
-  margin-top:100px; /* da ne preklapa header */
-}
-.lang-buttons button{
-  margin:0 5px;
-  padding:6px 12px;
-  border:none;
-  border-radius:4px;
-  background:#0066cc;
-  color:white;
-  cursor:pointer;
+nav button:hover{
+  background:#163bb3;
 }
 
 section{
-  padding:80px 20px 40px;
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
   text-align:center;
 }
 
-.section-img{
-  max-width:300px;
-  margin-top:20px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition:0.3s;
+.hero{
+  background:linear-gradient(rgba(10,31,68,0.85), rgba(10,31,68,0.85)),
+  url('https://images.unsplash.com/photo-1581091870627-3e7b5d8ef0c3');
+  background-size:cover;
+  background-position:center;
+  color:white;
+  padding:120px 20px;
 }
-.section-img:hover{
-  transform:scale(1.02);
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  max-width:700px;
+  margin:auto;
+}
+
+.btn-main{
+  margin-top:30px;
+  padding:12px 25px;
+  background:#1f4ed8;
+  border:none;
+  color:white;
+  font-size:16px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
 .cards{
@@ -86,75 +87,43 @@ section{
   gap:20px;
   flex-wrap:wrap;
   justify-content:center;
-  margin-top:30px;
+  margin-top:40px;
 }
+
 .card{
   background:white;
-  padding:20px;
-  width:250px;
+  padding:30px;
+  width:300px;
   border-radius:10px;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  text-align:center;
   transition:0.3s;
 }
-.card-icon img{
-  width:50px;
-  height:50px;
-  margin-bottom:10px;
-}
+
 .card:hover{
   transform:translateY(-5px);
-  box-shadow:0 15px 25px rgba(0,0,0,0.15);
-  background:#f0f4ff;
-}
-.card-desc{
-  margin-top:10px;
-}
-
-.reference-card{
-  background:white;
-  padding:25px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
-  margin:30px auto;
-  max-width:800px;
-}
-.reference-images{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-  margin-top:15px;
-}
-.reference-img{
-  max-width:200px;
-  border-radius:10px;
-  transition:0.3s;
-}
-.reference-img:hover{
-  transform:scale(1.05);
-}
-
-.btn-main{
-  margin-top:15px;
-  padding:10px 20px;
-  background:#0066cc;
-  color:white;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-  transition:0.3s;
-  font-weight:bold;
-}
-.btn-main:hover{
-  background:#004c99;
 }
 
 footer{
-  background:#004080;
+  background:#0a1f44;
   color:white;
   text-align:center;
-  padding:20px;
+  padding:30px;
+  margin-top:60px;
+}
+
+.lang-buttons{
+  text-align:center;
+  margin:20px;
+}
+
+.lang-buttons button{
+  padding:8px 14px;
+  margin:5px;
+  border:none;
+  border-radius:5px;
+  background:#1f4ed8;
+  color:white;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -162,13 +131,12 @@ footer{
 <body>
 
 <header>
-  <img src="logo.png" alt="Logo" height="50" style="margin-right:20px;">
+  <h2>Automatika Nusret Halilović</h2>
   <nav>
-    <button data-bs="Početna" data-en="Home" data-de="Start" onclick="showSection('pocetna')">Početna</button>
-    <button data-bs="O nama" data-en="About" data-de="Über uns" onclick="showSection('onama')">O nama</button>
-    <button data-bs="Usluge" data-en="Services" data-de="Dienstleistungen" onclick="showSection('usluge')">Usluge</button>
-    <button data-bs="Reference" data-en="References" data-de="Referenzen" onclick="showSection('reference')">Reference</button>
-    <button data-bs="Kontakt" data-en="Contact" data-de="Kontakt" onclick="showSection('kontakt')">Kontakt</button>
+    <button onclick="showSection('pocetna')">Početna</button>
+    <button onclick="showSection('onama')">O nama</button>
+    <button onclick="showSection('usluge')">Usluge</button>
+    <button onclick="showSection('kontakt')">Kontakt</button>
   </nav>
 </header>
 
@@ -178,72 +146,46 @@ footer{
   <button onclick="setLang('de')">Deutsch</button>
 </div>
 
-<!-- POČETNA -->
-<section id="pocetna">
-  <h1 data-bs="Dobrodošli na Automatiku Nusret Halilović" data-en="Welcome to Nusret Halilović Automation" data-de="Willkommen bei Nusret Halilović Automation">Dobrodošli na Automatiku Nusret Halilović</h1>
-  <p data-bs="Projektujemo i izrađujemo automatiku po vašim potrebama." data-en="We design and build automation according to your needs." data-de="Wir entwerfen und bauen Automatisierung nach Ihren Bedürfnissen.">Projektujemo i izrađujemo automatiku po vašim potrebama.</p>
-  <button class="btn-main" data-bs="Pošaljite upit" data-en="Send Inquiry" data-de="Anfrage senden" onclick="showSection('kontakt')">Pošaljite upit</button>
-  <img class="section-img" src="pocetna.png" alt="Početna ilustracija">
+<!-- HERO -->
+<section id="pocetna" class="hero">
+  <h1>Industrijska automatizacija nove generacije</h1>
+  <p>Projektujemo, programiramo i implementiramo napredne sisteme automatike za industriju, proizvodnju i energetiku.</p>
+  <button class="btn-main" onclick="showSection('kontakt')">Pošaljite upit</button>
 </section>
 
 <!-- O NAMA -->
 <section id="onama" style="display:none;">
-  <h1 data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</h1>
-  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata. Naš tim čine iskusni inženjeri i tehničari..." 
-  data-en="We are specialists in the design, development, and implementation of industrial automation systems with many years of experience..." 
-  data-de="Wir sind Spezialisten für die Planung, Entwicklung und Implementierung industrieller Automatisierungssysteme...">
-  Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom...
+  <h1>O nama</h1>
+  <p>
+  Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata. Naš tim čine iskusni inženjeri i tehničari sa snažnim industrijskim iskustvom u oblasti PLC programiranja, HMI sistema, izrade upravljačkih ormara, integracije senzora i pogonskih sistema te optimizacije proizvodnih procesa. Poseban fokus stavljamo na pouzdanost, energetsku efikasnost i dugoročnu održivost sistema. Svakom klijentu pristupamo individualno, analizirajući njegove potrebe i nudeći tehnički i ekonomski optimalna rješenja. Naš cilj je da budemo dugoročan partner u modernizaciji i digitalizaciji industrije.
   </p>
-  <img class="section-img" src="onama.png" alt="O nama ilustracija">
 </section>
 
 <!-- USLUGE -->
 <section id="usluge" style="display:none;">
-  <h1 data-bs="Naše usluge" data-en="Our Services" data-de="Unsere Dienstleistungen">Naše usluge</h1>
-  <p data-bs="Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara." 
-     data-en="We offer complete solutions in industrial automation, PLC programming, and control cabinet manufacturing." 
-     data-de="Wir bieten komplette Lösungen in der industriellen Automatisierung, SPS-Programmierung und Schaltschrankbau.">Nudimo kompletna rješenja u industrijskoj automatizaciji...</p>
-  <img class="section-img" src="usluge.png" alt="Usluge ilustracija">
+  <h1>Naše usluge</h1>
   <div class="cards">
     <div class="card">
-      <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="PLC Icon"></div>
-      <h3 data-bs="PLC & HMI Programiranje" data-en="PLC & HMI Programming" data-de="PLC & HMI Programmierung">PLC & HMI Programiranje</h3>
-      <p class="card-desc" data-bs="Razvoj i optimizacija upravljačkih sistema." data-en="Development and optimization of control systems." data-de="Entwicklung und Optimierung von Steuerungssystemen.">Razvoj i optimizacija upravljačkih sistema.</p>
+      <h3>PLC & HMI Programiranje</h3>
+      <p>Razvoj i optimizacija upravljačkih sistema.</p>
     </div>
     <div class="card">
-      <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/2910/2910760.png" alt="Control Cabinet"></div>
-      <h3 data-bs="Izrada Upravljačkih Ormara" data-en="Control Cabinet Manufacturing" data-de="Herstellung von Schaltschränken">Izrada Upravljačkih Ormara</h3>
-      <p class="card-desc" data-bs="Projektovanje, ožičavanje i puštanje u rad." data-en="Design, wiring and commissioning." data-de="Planung, Verdrahtung und Inbetriebnahme.">Projektovanje, ožičavanje i puštanje u rad.</p>
+      <h3>Izrada Upravljačkih Ormara</h3>
+      <p>Projektovanje, ožičavanje i puštanje u rad.</p>
     </div>
     <div class="card">
-      <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Modernization"></div>
-      <h3 data-bs="Modernizacija Postrojenja" data-en="Plant Modernization" data-de="Modernisierung von Anlagen">Modernizacija Postrojenja</h3>
-      <p class="card-desc" data-bs="Optimizacija i unapređenje postojećih sistema." data-en="Optimization and improvement of existing systems." data-de="Optimierung und Verbesserung bestehender Systeme.">Optimizacija i unapređenje postojećih sistema.</p>
-    </div>
-  </div>
-</section>
-
-<!-- REFERENCE -->
-<section id="reference" style="display:none;">
-  <h1 data-bs="Reference / Projekti" data-en="References / Projects" data-de="Referenzen / Projekte">Reference / Projekti</h1>
-  <div class="reference-card">
-    <h3 data-bs="Izrada postolja za automatsko rezanje profila i automatizacija istog" data-en="Construction of frame for automatic profile cutting and its automation" data-de="Herstellung eines Gestells für automatisches Profilschneiden und dessen Automatisierung">Izrada postolja za automatsko rezanje profila i automatizacija istog</h3>
-    <p data-bs="Projekt je obuhvatio kompletno projektovanje i izradu metalnog postolja..." data-en="The project included full design and construction of the metal frame..." data-de="Das Projekt umfasste die vollständige Planung und Herstellung des Metallgestells...">Projekt je obuhvatio kompletno projektovanje i izradu metalnog postolja...</p>
-    <div class="reference-images">
-      <img class="reference-img" src="reference1.png" alt="Postolje 1">
-      <img class="reference-img" src="reference2.png" alt="Postolje 2">
-      <img class="reference-img" src="reference3.png" alt="Postolje 3">
+      <h3>Modernizacija Postrojenja</h3>
+      <p>Optimizacija i unapređenje postojećih sistema.</p>
     </div>
   </div>
 </section>
 
 <!-- KONTAKT -->
 <section id="kontakt" style="display:none;">
-  <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
-  <p data-bs="Za poslovne upite kontaktirajte nas putem forme." data-en="For business inquiries, contact us via the form." data-de="Für Geschäftsanfragen kontaktieren Sie uns über das Formular.">Za poslovne upite kontaktirajte nas putem forme.</p>
-  <img class="section-img" src="kontakt.png" alt="Kontakt ilustracija">
+  <h1>Kontakt</h1>
+  <p>Za poslovne upite kontaktirajte nas putem forme.</p>
   <a href="https://forms.gle/AK3RVLqDqPV9T5Xv6" target="_blank">
-    <button class="btn-main" data-bs="Otvorite formu" data-en="Open Form" data-de="Formular öffnen">Otvorite formu</button>
+    <button class="btn-main">Otvorite formu</button>
   </a>
 </section>
 
@@ -253,27 +195,9 @@ footer{
 
 <script>
 function showSection(id){
-  document.querySelectorAll('section').forEach(s=>s.style.display='none');
+  document.querySelectorAll('section').forEach(s => s.style.display='none');
   document.getElementById(id).style.display='block';
-  window.scrollTo(0,0);
 }
-
-function setLang(lang){
-  document.querySelectorAll('[data-bs], [data-en], [data-de]').forEach(el=>{
-    if(lang==='bs' && el.dataset.bs) el.textContent=el.dataset.bs;
-    if(lang==='en' && el.dataset.en) el.textContent=el.dataset.en;
-    if(lang==='de' && el.dataset.de) el.textContent=el.dataset.de;
-  });
-}
-
-// HEADER scroll effect
-window.addEventListener('scroll', ()=>{
-  if(window.scrollY > 50){
-    document.querySelector('header').classList.add('scrolled');
-  } else {
-    document.querySelector('header').classList.remove('scrolled');
-  }
-});
 </script>
 
 </body>
