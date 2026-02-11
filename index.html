@@ -118,3 +118,163 @@ section.visible{
   transition:0.3s;
 }
 .section-img:hover{
+  transform:scale(1.03);
+}
+
+/* ---------- Cards / Usluge ---------- */
+.cards{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:40px;
+}
+.card{
+  background:white;
+  padding:25px;
+  width:260px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  text-align:center;
+  transition:0.3s;
+}
+.card-icon img{
+  width:60px;
+  height:60px;
+  margin-bottom:15px;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 25px rgba(0,0,0,0.15);
+  background:#f0f4ff;
+}
+.card-desc{
+  margin-top:12px;
+}
+
+/* ---------- Reference Section ---------- */
+.reference-card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  margin:40px auto;
+  max-width:900px;
+}
+.reference-images{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
+  margin-top:20px;
+}
+.reference-img{
+  max-width:250px;
+  border-radius:10px;
+  transition:0.3s;
+}
+.reference-img:hover{
+  transform:scale(1.05);
+}
+
+/* ---------- Footer ---------- */
+footer{
+  background:#004080;
+  color:white;
+  text-align:center;
+  padding:25px;
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:768px){
+  nav{flex-direction:column; gap:8px;}
+  .cards{flex-direction:column;}
+  .hero h1{font-size:2.2em;}
+}
+</style>
+</head>
+<body>
+
+<!-- ---------- Header / Nav ---------- -->
+<header>
+  <img src="logo.png" alt="Logo">
+  <nav>
+    <button data-bs="Početna" data-en="Home" data-de="Start" onclick="showSection('pocetna')">Početna</button>
+    <button data-bs="O nama" data-en="About" data-de="Über uns" onclick="showSection('onama')">O nama</button>
+    <button data-bs="Usluge" data-en="Services" data-de="Dienstleistungen" onclick="showSection('usluge')">Usluge</button>
+    <button data-bs="Reference" data-en="References" data-de="Referenzen" onclick="showSection('reference')">Reference</button>
+    <button data-bs="Kontakt" data-en="Contact" data-de="Kontakt" onclick="showSection('kontakt')">Kontakt</button>
+  </nav>
+</header>
+
+<!-- ---------- Language ---------- -->
+<div class="lang-buttons">
+  <button onclick="setLang('bs')">Bosanski</button>
+  <button onclick="setLang('en')">English</button>
+  <button onclick="setLang('de')">Deutsch</button>
+</div>
+
+<!-- ---------- Hero / POČETNA ---------- -->
+<section id="pocetna" class="hero visible">
+  <h1 data-bs="Dobrodošli na Automatiku Nusret Halilović" data-en="Welcome to Nusret Halilović Automation" data-de="Willkommen bei Nusret Halilović Automation">Dobrodošli na Automatiku Nusret Halilović</h1>
+  <p data-bs="Projektujemo i izrađujemo automatiku po vašim potrebama." data-en="We design and build automation according to your needs." data-de="Wir entwerfen und bauen Automatisierung nach Ihren Bedürfnissen.">Projektujemo i izrađujemo automatiku po vašim potrebama.</p>
+  <button class="btn-main" data-bs="Pošaljite upit" data-en="Send Inquiry" data-de="Anfrage senden" onclick="showSection('kontakt')">Pošaljite upit</button>
+  <img class="section-img" src="pocetna.png" alt="Početna ilustracija">
+</section>
+
+<!-- ---------- O NAMA ---------- -->
+<section id="onama">
+  <h1 data-bs="O nama" data-en="About Us" data-de="Über uns">O nama</h1>
+  <p data-bs="Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom..." 
+     data-en="We are specialists in industrial automation design and implementation with years of experience..." 
+     data-de="Wir sind Spezialisten für die Planung und Implementierung industrieller Automatisierungssysteme mit langjähriger Erfahrung...">
+     Mi smo stručnjaci za projektovanje, izradu i implementaciju sistema industrijske automatike sa dugogodišnjim iskustvom u realizaciji složenih tehničkih i proizvodnih projekata...
+  </p>
+  <img class="section-img" src="onama.png" alt="O nama ilustracija">
+</section>
+
+<!-- ---------- USLUGE ---------- -->
+<section id="usluge">
+  <h1 data-bs="Naše usluge" data-en="Our Services" data-de="Unsere Dienstleistungen">Naše usluge</h1>
+  <p data-bs="Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara." 
+     data-en="We offer complete solutions in industrial automation, PLC programming, and control cabinet manufacturing." 
+     data-de="Wir bieten komplette Lösungen in der industriellen Automatisierung, SPS-Programmierung und Schaltschrankbau.">
+     Nudimo kompletna rješenja u industrijskoj automatizaciji, PLC programiranju i izradi upravljačkih ormara...
+  </p>
+  <img class="section-img" src="usluge.png" alt="Usluge ilustracija">
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/3062/3062634.png" alt="PLC Icon"></div>
+      <h3 data-bs="PLC & HMI Programiranje" data-en="PLC & HMI Programming" data-de="PLC & HMI Programmierung">PLC & HMI Programiranje</h3>
+      <p class="card-desc" data-bs="Razvoj i optimizacija upravljačkih sistema." data-en="Development and optimization of control systems." data-de="Entwicklung und Optimierung von Steuerungssystemen.">Razvoj i optimizacija upravljačkih sistema.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/2910/2910760.png" alt="Control Cabinet"></div>
+      <h3 data-bs="Izrada Upravljačkih Ormara" data-en="Control Cabinet Manufacturing" data-de="Herstellung von Schaltschränken">Izrada Upravljačkih Ormara</h3>
+      <p class="card-desc" data-bs="Projektovanje, ožičavanje i puštanje u rad." data-en="Design, wiring and commissioning." data-de="Planung, Verdrahtung und Inbetriebnahme.">Projektovanje, ožičavanje i puštanje u rad.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Modernization"></div>
+      <h3 data-bs="Modernizacija Postrojenja" data-en="Plant Modernization" data-de="Modernisierung von Anlagen">Modernizacija Postrojenja</h3>
+      <p class="card-desc" data-bs="Optimizacija i unapređenje postojećih sistema." data-en="Optimization and improvement of existing systems." data-de="Optimierung und Verbesserung bestehender Systeme.">Optimizacija i unapređenje postojećih sistema.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ---------- REFERENCE ---------- -->
+<section id="reference">
+  <h1 data-bs="Reference / Projekti" data-en="References / Projects" data-de="Referenzen / Projekte">Reference / Projekti</h1>
+  <div class="reference-card">
+    <h3 data-bs="Izrada postolja za automatsko rezanje profila i automatizacija istog" data-en="Construction of frame for automatic profile cutting and its automation" data-de="Herstellung eines Gestells für automatisches Profilschneiden und dessen Automatisierung">Izrada postolja za automatsko rezanje profila i automatizacija istog</h3>
+    <p data-bs="Projekt je obuhvatio kompletno projektovanje i izradu metalnog postolja..." data-en="The project included full design and construction of the metal frame..." data-de="Das Projekt umfasste die vollständige Planung und Herstellung des Metallgestells...">Projekt je obuhvatio kompletno projektovanje i izradu metalnog postolja...</p>
+    <div class="reference-images">
+      <img class="reference-img" src="reference1.png" alt="Postolje 1">
+      <img class="reference-img" src="reference2.png" alt="Postolje 2">
+      <img class="reference-img" src="reference3.png" alt="Postolje 3">
+    </div>
+  </div>
+</section>
+
+<!-- ---------- KONTAKT ---------- -->
+<section id="kontakt">
+  <h1 da
