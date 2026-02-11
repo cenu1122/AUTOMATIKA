@@ -277,4 +277,49 @@ footer{
 
 <!-- ---------- KONTAKT ---------- -->
 <section id="kontakt">
-  <h1 da
+  <h1 data-bs="Kontakt" data-en="Contact" data-de="Kontakt">Kontakt</h1>
+  <p data-bs="Za poslovne upite kontaktirajte nas putem forme." data-en="For business inquiries, contact us via the form." data-de="Für Geschäftsanfragen kontaktieren Sie uns über das Formular.">Za poslovne upite kontaktirajte nas putem forme.</p>
+  <img class="section-img" src="kontakt.png" alt="Kontakt ilustracija">
+  <a href="https://forms.gle/AK3RVLqDqPV9T5Xv6" target="_blank">
+    <button class="btn-main" data-bs="Otvorite formu" data-en="Open Form" data-de="Formular öffnen">Otvorite formu</button>
+  </a>
+</section>
+
+<footer>
+  © 2026 Nusret Halilović | Industrijska Automatika
+</footer>
+
+<!-- ---------- JS ---------- -->
+<script>
+// ---------- Show Section ----------
+function showSection(id){
+  document.querySelectorAll('section').forEach(s=>s.style.display='none');
+  const sec = document.getElementById(id);
+  sec.style.display='block';
+  sec.classList.add('visible');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// ---------- Language ----------
+function setLang(lang){
+  document.querySelectorAll('[data-bs], [data-en], [data-de]').forEach(el=>{
+    if(lang==='bs' && el.dataset.bs) el.textContent=el.dataset.bs;
+    if(lang==='en' && el.dataset.en) el.textContent=el.dataset.en;
+    if(lang==='de' && el.dataset.de) el.textContent=el.dataset.de;
+  });
+}
+
+// ---------- Fade-in on scroll ----------
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+    }
+  });
+},{threshold:0.2});
+document.querySelectorAll('section').forEach(sec=>{
+  observer.observe(sec);
+});
+</script>
+</body>
+</html>
